@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض كلمة "بحبك" بـ 7 لغات</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .flags {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .flag {
+      width: 50px;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .flag:hover {
+      transform: scale(1.2);
+    }
+
+    .language-container {
+      display: none;
+      margin-top: 30px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1s forwards;
+    }
+
+    .language-container.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      } 
+    }
+    .d143 {
+     color: white;
+     font-size: 45px;
+     padding-bottom: 50px;
+     padding-top: 0; 
+    }
+  </style>
+</head>
+<body>
+  <div class="d143">
+    143 for all lang
+  </div>
+  <div class="container">
+    <div class="flags">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" alt="English" class="flag" id="englishFlag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png" alt="Spanish" class="flag" id="spanishFlag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png" alt="French" class="flag" id="frenchFlag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/2560px-Flag_of_Italy.svg.png" alt="Italian" class="flag" id="italianFlag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png" alt="German" class="flag" id="germanFlag">
+      <img src="https://masa-press.net/wp-content/uploads/2024/01/%D8%B9%D9%84%D9%85-%D8%A7%D9%84%D8%B5%D9%8A%D9%86.jpg" alt="Chinese" class="flag" id="chineseFlag">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg" alt="Egyptian" class="flag" id="egyptianFlag">
+    </div>
+
+    <div id="english" class="language-container">I love you</div>
+    <div id="spanish" class="language-container">Te quiero</div>
+    <div id="french" class="language-container">Je t'aime</div>
+    <div id="italian" class="language-container">Ti amo</div>
+    <div id="german" class="language-container">Ich liebe dich</div>
+    <div id="chinese" class="language-container">我爱你</div>
+    <div id="egyptian" class="language-container">بحبك</div>
+  </div>
+
+  <script>
+    // إضافة وظيفة النقر على الأعلام لعرض النص
+    const flags = document.querySelectorAll('.flag');
+    const languageContainers = document.querySelectorAll('.language-container');
+
+    flags.forEach(flag => {
+      flag.addEventListener('click', function() {
+        const selectedLanguage = this.id.replace('Flag', '');
+        
+        // إخفاء جميع النصوص
+        languageContainers.forEach(container => {
+          container.classList.remove('active');
+        });
+
+        // إظهار النص الخاص باللغة المحددة
+        const activeContainer = document.getElementById(selectedLanguage);
+        activeContainer.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
